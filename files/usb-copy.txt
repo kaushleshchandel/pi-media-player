@@ -1,0 +1,12 @@
+[Unit]
+Description=USB Flash Drive Auto Copy Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/usb_copy_service.py
+Restart=always
+User=apex
+WorkingDirectory=/home/apex
+
+[Install]
+WantedBy=multi-user.target

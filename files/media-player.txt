@@ -1,0 +1,16 @@
+[Unit]
+Description=Media Player GPIO Service
+After=graphical.target
+Requires=graphical.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/media_player_service.py
+Restart=always
+User=pi
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+WorkingDirectory=/home/pi
+TimeoutStartSec=30
+
+[Install]
+WantedBy=graphical.target
